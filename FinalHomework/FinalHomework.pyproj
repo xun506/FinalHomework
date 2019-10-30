@@ -23,6 +23,96 @@
   <ItemGroup>
     <Compile Include="FinalHomework.py" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="background.jpg" />
+    <Content Include="get\%282019-09-02%29Light中心党支部召开“不忘初心，牢记使命”专题组织生活会.txt" />
+    <Content Include="get\%282019-09-02%29研究生部党总支组织参观党员主题教育基地.txt" />
+    <Content Include="get\%282019-09-02%29长春光机所自主研发的生物防治无人机打响“赤眼蜂特种战”.txt" />
+    <Content Include="get\%282019-09-04%29光栅中心党支部开展“不忘初心 牢记使命”专题组织生活会.txt" />
+    <Content Include="get\%282019-09-04%29深海光学探测联合实验室成立.txt" />
+    <Content Include="get\%282019-09-04%29航测一部开展“不忘初心，牢记使命”主题教育活动.txt" />
+    <Content Include="get\%282019-09-05%29长春光机所工会开展“走进军营 感悟军魂”主题活动.txt" />
+    <Content Include="get\%282019-09-11%29空间新技术部荣获“2017-2018年度省直机关青年文明号”荣誉称号.txt" />
+    <Content Include="get\%282019-09-11%29质检中心党支部组织党员参观大庆铁人纪念馆.txt" />
+    <Content Include="get\%282019-09-11%29长春光机所研究部和个人喜获“省直机关青年先锋”荣誉称号.txt" />
+    <Content Include="get\%282019-09-11%29长春光机所第十一届职工运动会胜利召开.txt" />
+    <Content Include="get\%282019-09-12%29空间二部详查二室党支部开展 “不忘初心，牢记使命”主题教育活动.txt" />
+    <Content Include="get\%282019-09-16%29长春光机所2019年研究生开学典礼隆重举行.txt" />
+    <Content Include="get\%282019-09-17%29履行职责 规范工作 所纪委专题研究分工和工作规则.txt" />
+    <Content Include="get\%282019-09-17%29离退中心举办庆祝建国建院70周年书画摄影展.txt" />
+    <Content Include="get\%282019-09-17%29长春光机所基础处、吉林省科技厅高新处党支部联合开展主题党日活动.txt" />
+    <Content Include="get\%282019-09-17%29长春光机所应光室提出傅里叶叠层恢复算法，有效提高重建图像质量.txt" />
+    <Content Include="get\%282019-09-17%29长春光机所被授予“长春市青少年科普教育基地”.txt" />
+    <Content Include="get\%282019-09-19%29长光—复旦合作基金项目结题、立项评审会暨复旦—长光科技论坛在长春光机所召开.txt" />
+    <Content Include="get\%282019-09-22%29“不忘初心、牢记使命、继续前行”光学中心党支部组织开展社会实践活动.txt" />
+    <Content Include="get\%282019-09-23%29第二届长春光机所青年科技创新委员会成功召开.txt" />
+    <Content Include="get\%282019-09-23%29长春光机所党委举办“歌唱祖国 红歌飞扬”红歌赛.txt" />
+    <Content Include="get\%282019-09-23%29长春光机所党委看望慰问离休老干部.txt" />
+    <Content Include="get\%282019-09-23%29长春光机所承担“太极一号”第一阶段实验任务顺利完成.txt" />
+    <Content Include="get\%282019-09-24%29《发光学报》、《Light》发表文章入选第四届中国科协百篇优秀科技论文.txt" />
+    <Content Include="get\%282019-09-24%29研发中心学生党支部举办迎新会.txt" />
+    <Content Include="get\%282019-09-24%29航测部学生党支部开展 “新生入室交流与安全教育交流会”活动.txt" />
+    <Content Include="get\%282019-09-24%29长春光机所举办光电产业光学系统设计与检测高级研修班.txt" />
+    <Content Include="get\%282019-09-24%29长春光机所代表队荣获2019全国科学实验展演汇演大赛三等奖.txt" />
+    <Content Include="get\%282019-09-25%29长春光机所刘小翼博士荣获中科院优秀博士学位论文奖.txt" />
+    <Content Include="get\%282019-09-25%29长春光机所高劲松研究员、黎大兵研究员荣获优秀导师奖.txt" />
+    <Content Include="get\%282019-09-26%29长春光机所与长春市图书馆等单位联合举办“家国情怀、科学精神”院士图片展.txt" />
+    <Content Include="get\%282019-09-26%29长春光机所代表团赴英国参加空间可溯源气候观测技术国际研讨会.txt" />
+    <Content Include="get\%282019-09-26%29长春光机所蒋筑英、王大珩荣获“最美奋斗者”称号个人和做出重要贡献集体奖.txt" />
+    <Content Include="get\%282019-09-26%29首届中白科技研讨会在长春光机所成功举办.txt" />
+    <Content Include="get\%282019-09-27%29长春光机所巴音贺希格研究员荣获“全国民族团结进步模范个人”称号.txt" />
+    <Content Include="get\%282019-09-27%29长春光机所董吉洪研究员当选“长春最美奋斗者”.txt" />
+    <Content Include="get\%282019-09-28%29长春光机所举办《科研项目研发过程中专利申请保护和风险防范策略》主题讲座.txt" />
+    <Content Include="get\%282019-09-28%29长春光机所工会举办“帮你留驻美好时光”手机和相机摄影基础讲座.txt" />
+    <Content Include="get\%282019-09-29%29保密管理处党支部开展“不忘初心，牢记使命”主题党日活动.txt" />
+    <Content Include="get\%282019-09-29%29研发中心与航测部学生党支部联合举办 “迎70周年华诞，谱幸福生活乐章”主题绘画....txt" />
+    <Content Include="get\%282019-09-29%29空间一部与空间三部学生联合党支部迎新及经验交流分享会.txt" />
+    <Content Include="get\%282019-09-30%29航测三部党支部、工会开展 “不忘初心，坚定信念”主题党日活动.txt" />
+    <Content Include="get\%282019-10-08%29加强安全教育 提高防范意识——航测二部举办2019年度消防安全知识培训.txt" />
+    <Content Include="get\%282019-10-09%29济宁市政府赴长春光机所调研.txt" />
+    <Content Include="get\%282019-10-09%29航测一部党支部开展“不忘初心，牢记使命”爱国主义观影活动.txt" />
+    <Content Include="get\%282019-10-09%29贺祖国七十周年华诞——长春希达超高清LED大放异彩展示吉林魅力.txt" />
+    <Content Include="get\%282019-10-13%29民革省直光机所支部开展“不忘初心、继续携手前进”主题教育活动.txt" />
+    <Content Include="get\%282019-10-14%29航测二部党支部开展“不忘初心、牢记使命”主题观影活动.txt" />
+    <Content Include="get\%282019-10-14%29长春光机所党委看望慰问重大疾病困难老同志.txt" />
+    <Content Include="get\%282019-10-14%29长春光机所积极组织开展无偿献血活动.txt" />
+    <Content Include="get\%282019-10-15%29长春光机所举办纪念中国第一颗原子弹爆炸试验成功55周年专题报告会.txt" />
+    <Content Include="get\%282019-10-15%29长春光机所代表团陪同科技部王志刚部长一行访问瑞士.txt" />
+    <Content Include="get\%282019-10-15%29长春光机所张婷婷喜获第二届IPC线缆线束装配竞赛季军.txt" />
+    <Content Include="get\%282019-10-18%29保密管理处举办《压力对员工心理健康的影响——临床案例分析》主题讲座.txt" />
+    <Content Include="get\%282019-10-18%29图像部党支部开展“不忘初心、牢记使命”主题党日活动.txt" />
+    <Content Include="get\%282019-10-18%29空间新技术部代表本所青年先锋参加“省直机关青年庆祝中华人民共和国成立70周年....txt" />
+    <Content Include="get\%282019-10-21%29长春光机所举办2019年度退休职工集体祝寿会.txt" />
+    <Content Include="get\%282019-10-21%29长春光机所管理系统第一理论学习小组成立.txt" />
+    <Content Include="get\%282019-10-22%29长春光机所管理系统年轻干部第二理论学习小组成立.txt" />
+    <Content Include="get\%282019-10-23%29长春光机所举办“重塑学术监督的权威”专题培训.txt" />
+    <Content Include="get\%282019-10-25%29电装中心召开年轻干部理论学习小组成立大会.txt" />
+    <Content Include="get\%282019-10-26%29Light中心召开年轻干部理论学习小组成立大会.txt" />
+    <Content Include="get\%282019-10-28%29保密处党支部开展党课学习和主题党日活动.txt" />
+    <Content Include="get\%282019-10-28%29光栅中心党支部上党课深入学习“八个明确”和“十四个坚持”.txt" />
+    <Content Include="get\%282019-10-28%29应光室党支部召开年轻干部理论学习小组成立大会.txt" />
+    <Content Include="get\%282019-10-28%29航测一部年轻干部理论学习小组成立.txt" />
+    <Content Include="get\%282019-10-28%29长春光机所“光明前行”年轻干部联合理论学习小组成立.txt" />
+    <Content Include="get\%282019-10-28%29长春光机所举办“国家重大科研仪器研制项目验收与档案管理”培训.txt" />
+    <Content Include="get\%282019-10-28%29长春光机所举办“国际专利申请”专题培训.txt" />
+    <Content Include="get\%282019-10-29%29长春光机所管理系统年轻干部第三理论学习小组正式成立.txt" />
+    <Content Include="get\%282019-10-30%292018级硕士生召开开题考核经验分享会.txt" />
+    <Content Include="get\%282019-10-30%29以问题为导向 在学习中前进--空间机器人工程中心成立年轻干部理论学习小组.txt" />
+    <Content Include="get\%282019-10-30%29光栅中心召开年轻干部理论学习小组成立大会.txt" />
+    <Content Include="get\%282019-10-30%29航测二部“务真求实”年轻干部理论学习小组成立.txt" />
+    <Content Include="get\%282019-10-31%29图像部年轻干部理论学习小组成立.txt" />
+    <Content Include="get\%282019-10-31%29长春光机所举办心理健康知识专题讲座.txt" />
+    <Content Include="get\%282019-10-31%29长春光机所举办机械设计精品培训班.txt" />
+    <Content Include="get\%282019-10-31%29长春光机所召开标准化规范化支部建设考核评价工作部署会.txt" />
+    <Content Include="get\%282019-11-01%29中科院第二届科学节——长光科普走进特教学校.txt" />
+    <Content Include="NoCut.txt" />
+    <Content Include="result.txt" />
+    <Content Include="stopwords.txt" />
+    <Content Include="WordCloud_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="get\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
        Visual Studio and specify your pre- and post-build commands in
