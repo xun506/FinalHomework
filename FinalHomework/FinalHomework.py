@@ -22,10 +22,13 @@ def getHTMLText(url):
         print('getHTMLText Error!\n')
         return ""
 
-def text_create(name, msg):
+def text_create(name, msg):   #文件名不能包含\/：*？"<>|字符
     desktop_path = "./get/"  # 新创建的txt文件的存放路径
+    rstr = r"[\/\\\:\*\?\"\<\>\|]"  # '/ \ : * ? " < > |'
+    name = re.sub(rstr, "_", name)  # 替换为下划线
+    name = name.replace('\n\u3000\u3000',' ')   #解决2018-08-13的标题中有斜杠的问题
     full_path = desktop_path + name + '.txt'  # 也可以创建一个.doc的word文档
-    file = open(full_path, 'w')
+    file = open(full_path, 'w', encoding='utf-8')
     file.write(msg)
     file.close()
 
@@ -36,22 +39,29 @@ def fillUnivList(ulist, html):
     mydate=soup.find_all('td',class_="riqi")  #找到所有的日期
     global Tag
     for i in range(len(mydata)):
-        if mydate[i].string == '(2019-08-30)':
+        if mydate[i].string == '(2016-09-01)':
             Tag = 0
         if Tag:
-            mylink=mydata[i].get('href')
-            sublink='http://www.ciomp.ac.cn/xwdt/zhxw/' + mylink   #子链接地址
-            subText = getHTMLText(sublink)                         #访问之链接
+            mylink = mydata[i].get('href')
+            if mylink == 'http://www.ccb.cas.cn/xwzx2015/zhxw2015/201902/t20190225_5244377.html':
+                sublink = mylink       #该地址直接访问另一个地址，不在所服务器
+            elif mylink == 'http://www.ccb.ac.cn/xwzx2015/zhxw2015/201808/t20180828_5060142.html':
+                sublink = mylink       #该地址直接访问另一个地址，不在所服务器
+            else:
+                sublink = 'http://www.ciomp.ac.cn/xwdt/zhxw/' + mylink   #子链接地址
+            subText = getHTMLText(sublink)                         #访问子链接
             subsoup = BeautifulSoup(subText, "html.parser")        #解析子链接
             subdata=subsoup.find('div',class_="TRS_Editor")
-
+            if subdata is None:
+                subdata=subsoup.find('td',class_="zw")
             #subwriter = subsoup.find('td')        #找到发布人
             #print(subwriter)
 
-            if (subdata.find('style') != None ):
+            if subdata.find('style'):
                 [s.extract() for s in subdata("style")]
             mytext=subdata.get_text()
             txtname=mydate[i].string + mydata[i].string
+            print(txtname)
             text_create(txtname,mytext.replace(u'\xa0',u''))          #生成对应txt文件
 
 def stop_words(texts):
@@ -68,11 +78,11 @@ def stop_words(texts):
 def txt_add():
     meragefiledir = './get'
     filenames=os.listdir(meragefiledir)  #获取当前文件夹中的文件名称列表  
-    file=open('result.txt','w')      #打开当前目录下的result.txt文件，如果没有则创建
+    file=open('result.txt','w', encoding='utf-8')      #打开当前目录下的result.txt文件，如果没有则创建
     for filename in filenames:
         filepath=meragefiledir+'\\'
         filepath=filepath+filename
-        for line in open(filepath):      #遍历单个文件，读取行数  
+        for line in open(filepath,'r', encoding='UTF-8'):      #遍历单个文件，读取行数  
             file.writelines(line)  
         file.write('\n')  
     file.close()  
@@ -85,7 +95,7 @@ def main():
     html = getHTMLText(url_first)
     fillUnivList(uinfo, html)
     url = 'http://www.ciomp.ac.cn/xwdt/zhxw/index_{list}.html'
-    for n in range(1,3):
+    for n in range(1,39):
         url_take = url.format(list=n)
         html = getHTMLText(url_take)
         fillUnivList(uinfo, html)
@@ -95,11 +105,11 @@ def main():
                    max_words=1000,  # 最大词数
                    mask=back_color,  # 以该参数值作图绘制词云，这个参数不为空时，width和height会被忽略
                    max_font_size=100,  # 显示字体的最大值
-                   stopwords=STOPWORDS.add('苟利国'),  # 使用内置的屏蔽词
+                   stopwords=STOPWORDS.add(' '),  # 使用内置的屏蔽词
                    font_path="C:/Windows/Fonts/STFANGSO.ttf",  # 解决显示口字型乱码问题，可进入C:/Windows/Fonts/目录更换字体
                    random_state=42,  # 为每个词返回一个PIL颜色
                    )
-    text = open('./result.txt').read()
+    text = open('./result.txt','r', encoding='UTF-8').read()
     text = stop_words(text)
     jieba.load_userdict('NoCut.txt')
     wc.generate(text)
@@ -113,6 +123,4 @@ def main():
 
 
 main()
-
-
 
