@@ -109,7 +109,6 @@
     <Content Include="result.txt" />
     <Content Include="stopwords.txt" />
     <Content Include="WordCloud_out.png" />
-    <Content Include="新建文本文档.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="get\" />
