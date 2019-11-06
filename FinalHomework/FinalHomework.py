@@ -50,36 +50,33 @@ def fillUnivList(ulist, html):
             else:
                 sublink = 'http://www.ciomp.ac.cn/xwdt/zhxw/' + mylink   #子链接地址
 
-            #sublink = 'http://www.ciomp.ac.cn/xwdt/zhxw/../../zt/kjcg/zonghexinwen/zonghexinwen_son/201908/t20190808_5356372.html'#测试特定页面
-
             subText = getHTMLText(sublink)                         #访问子链接
             subsoup = BeautifulSoup(subText, "html.parser")        #解析子链接
             subdata=subsoup.find('div',class_="TRS_Editor")        #查找文本的位置
 
             if subdata is None:
                 subdata=subsoup.find('td',class_="zw")         #如果是空，就在另一个位置查找
-
-            if sublink is 'http://www.ciomp.ac.cn/xwdt/zhxw/../../zt/kjcg/zonghexinwen/zonghexinwen_son/201908/t20190808_5356372.html':
-                subwriter = subsoup.find('span',style="color:#FF6600;")
-            elif sublink is 'http://www.ccb.ac.cn/xwzx2015/zhxw2015/201808/t20180828_5060142.html':
-                subwriter = subsoup.find('span',style="color:#FF6600;")
-            elif sublink is 'http://www.ccb.ac.cn/xwzx2015/zhxw2015/201808/t20180828_5060142.html':
+             
+            if re.findall(r'xwzx2015',sublink) or re.findall(r'chengguozhuanhua2',sublink) or re.findall(r'lxyz_zbdt',sublink):
+                subwriter.string = ' '
+            elif re.findall(r'zonghexinwen',sublink):
                 subwriter = subsoup.find('span',style="color:#FF6600;")
             else:
                 subwriter = subsoup.find('td',width="22%")        #找到发布人(靠编辑的位置的宽度找到)
-            print(subwriter.string)
-
+            #print(subwriter.string)
+            if subwriter.string == None:
+                subwriter.string = ' '
             if subdata.find('style'):
                 [s.extract() for s in subdata("style")]
             mytext=subdata.get_text()
-            txtname=mydate[i].string + mydata[i].string
-            print(txtname)
-            #text_create(txtname,mytext.replace(u'\xa0',u''))          #生成对应txt文件
+            txtname=mydate[i].string + subwriter.string + '《' + mydata[i].string + '》'
+            #print(txtname)
+            text_create(txtname,mytext.replace(u'\xa0',u''))          #生成对应txt文件
 
 def stop_words(texts):
     words_list = []
     word_generator = jieba.cut(texts, cut_all=False)  # 返回的是一个迭代器
-    with open('C:/Users/ShengjieZhu/Desktop/cloud/stopwords.txt') as f:
+    with open('stopwords.txt') as f:
         unicode_text = f.read()
         f.close()  # stopwords格式'一词一行'
     for word in word_generator:
