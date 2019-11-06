@@ -27,7 +27,7 @@ def text_create(name, msg):   #文件名不能包含\/：*？"<>|字符
     rstr = r"[\/\\\:\*\?\"\<\>\|]"  # '/ \ : * ? " < > |'
     name = re.sub(rstr, "_", name)  # 替换为下划线
     name = name.replace('\n\u3000\u3000',' ')   #解决2018-08-13的标题中有斜杠的问题
-    full_path = desktop_path + name + '.txt'  # 也可以创建一个.doc的word文档
+    full_path = desktop_path + name + '.txt'  # 创建一个.txt的文档
     file = open(full_path, 'w', encoding='utf-8')
     file.write(msg)
     file.close()
@@ -44,9 +44,9 @@ def fillUnivList(ulist, html):
         if Tag:
             mylink = mydata[i].get('href')
             if mylink == 'http://www.ccb.cas.cn/xwzx2015/zhxw2015/201902/t20190225_5244377.html':
-                sublink = mylink       #该地址直接访问另一个地址，不在所服务器
+                sublink = mylink       #该地址直接访问另一个地址，不在研究所服务器
             elif mylink == 'http://www.ccb.ac.cn/xwzx2015/zhxw2015/201808/t20180828_5060142.html':
-                sublink = mylink       #该地址直接访问另一个地址，不在所服务器
+                sublink = mylink       #该地址直接访问另一个地址，不在研究所服务器
             else:
                 sublink = 'http://www.ciomp.ac.cn/xwdt/zhxw/' + mylink   #子链接地址
             subText = getHTMLText(sublink)                         #访问子链接
