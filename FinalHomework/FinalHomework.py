@@ -51,18 +51,19 @@ def fillUnivList(ulist, html):
                 sublink = 'http://www.ciomp.ac.cn/xwdt/zhxw/' + mylink   #子链接地址
             subText = getHTMLText(sublink)                         #访问子链接
             subsoup = BeautifulSoup(subText, "html.parser")        #解析子链接
-            subdata=subsoup.find('div',class_="TRS_Editor")
+            subdata=subsoup.find('div',class_="TRS_Editor")        #查找文本的位置
             if subdata is None:
-                subdata=subsoup.find('td',class_="zw")
-            #subwriter = subsoup.find('td')        #找到发布人
-            #print(subwriter)
+                subdata=subsoup.find('td',class_="zw")         #额，忘了干嘛了
+
+            subwriter = subsoup.find('td',width="22%")        #找到发布人(靠编辑的位置的宽度找到)
+            print(subwriter.string)
 
             if subdata.find('style'):
                 [s.extract() for s in subdata("style")]
             mytext=subdata.get_text()
             txtname=mydate[i].string + mydata[i].string
             print(txtname)
-            text_create(txtname,mytext.replace(u'\xa0',u''))          #生成对应txt文件
+            #text_create(txtname,mytext.replace(u'\xa0',u''))          #生成对应txt文件
 
 def stop_words(texts):
     words_list = []
