@@ -50,20 +50,20 @@ def fillUnivList(ulist, html):
             else:
                 sublink = 'http://www.ciomp.ac.cn/xwdt/zhxw/' + mylink   #子链接地址
 
-            #sublink = 'http://www.ciomp.ac.cn/zt/kjcg/zonghexinwen/zonghexinwen_son/201908/t20190808_5356372.html'#测试特定页面
+            #sublink = 'http://www.ciomp.ac.cn/xwdt/zhxw/../../zt/kjcg/zonghexinwen/zonghexinwen_son/201908/t20190808_5356372.html'#测试特定页面
 
             subText = getHTMLText(sublink)                         #访问子链接
             subsoup = BeautifulSoup(subText, "html.parser")        #解析子链接
             subdata=subsoup.find('div',class_="TRS_Editor")        #查找文本的位置
 
             if subdata is None:
-                subdata=subsoup.find('td',class_="zw")         #额，忘了干嘛了
+                subdata=subsoup.find('td',class_="zw")         #如果是空，就在另一个位置查找
 
-            if sublink is "http://www.ciomp.ac.cn/zt/kjcg/zonghexinwen/zonghexinwen_son/201908/t20190808_5356372.html":
+            if sublink is 'http://www.ciomp.ac.cn/xwdt/zhxw/../../zt/kjcg/zonghexinwen/zonghexinwen_son/201908/t20190808_5356372.html':
                 subwriter = subsoup.find('span',style="color:#FF6600;")
-            elif sublink is "http://www.ccb.ac.cn/xwzx2015/zhxw2015/201808/t20180828_5060142.html":
+            elif sublink is 'http://www.ccb.ac.cn/xwzx2015/zhxw2015/201808/t20180828_5060142.html':
                 subwriter = subsoup.find('span',style="color:#FF6600;")
-            elif sublink is "http://www.ccb.ac.cn/xwzx2015/zhxw2015/201808/t20180828_5060142.html":
+            elif sublink is 'http://www.ccb.ac.cn/xwzx2015/zhxw2015/201808/t20180828_5060142.html':
                 subwriter = subsoup.find('span',style="color:#FF6600;")
             else:
                 subwriter = subsoup.find('td',width="22%")        #找到发布人(靠编辑的位置的宽度找到)
