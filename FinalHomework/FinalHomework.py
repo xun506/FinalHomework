@@ -83,7 +83,7 @@ def txt_add():
         filepath=meragefiledir+'\\'
         filepath=filepath+filename
         for line in open(filepath,'r', encoding='UTF-8'):      #遍历单个文件，读取行数  
-            file.writelines(line)  
+            file.writelines(line)
         file.write('\n')  
     file.close()  
 
