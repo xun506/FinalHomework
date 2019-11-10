@@ -14,8 +14,7 @@ last_page = 1
 max_steps=27
 page_number=0
 
-class ShowProcess():
-    #显示处理进度的类
+class ShowProcess():#显示处理进度的类
     i = 0 # 当前的处理进度
     max_steps = 0 # 总共需要处理的次数
     max_arrow = 80 #进度条的长度
