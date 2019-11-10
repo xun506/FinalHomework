@@ -142,6 +142,7 @@ def main():
     global page_number
     uinfo = []
     process_bar = ShowProcess(max_steps, 'OK')
+    os.remove("writers.txt")
     url_first = 'http://www.ciomp.ac.cn/xwdt/zhxw/index.html'  #首页
     html = getHTMLText(url_first)
     fillUnivList(uinfo, html)
