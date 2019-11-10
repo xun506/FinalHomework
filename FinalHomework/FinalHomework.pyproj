@@ -24,6 +24,7 @@
     <Compile Include="FinalHomework.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="background-1.jpg" />
     <Content Include="background.jpg" />
     <Content Include="get\%282019-09-02%29Light中心党支部召开“不忘初心，牢记使命”专题组织生活会.txt" />
     <Content Include="get\%282019-09-02%29研究生部党总支组织参观党员主题教育基地.txt" />
@@ -109,6 +110,7 @@
     <Content Include="result.txt" />
     <Content Include="stopwords.txt" />
     <Content Include="WordCloud_out.png" />
+    <Content Include="writers.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="get\" />
