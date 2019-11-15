@@ -9,10 +9,13 @@ import os
 from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 from matplotlib import pyplot as plt
 import sys
+import datetime
 
 last_page = 1
 max_steps=27
 page_number=0
+week = [0 for i in range(0,170)]
+subwriter = ' '
 
 class ShowProcess():#显示处理进度的类
     i = 0 # 当前的处理进度
@@ -73,7 +76,7 @@ def writers_txt(name):
         file.close()
 
 def fillUnivList(ulist, html):
-    global last_page , max_steps , page_number
+    global last_page , max_steps , page_number , week , subwriter
     soup = BeautifulSoup(html, "html.parser")
     mydata=soup.find_all('a',class_="font06") #找到所有的标题
     mydate=soup.find_all('td',class_="riqi")  #找到所有的日期
@@ -98,7 +101,8 @@ def fillUnivList(ulist, html):
         if subdata is None:
             subdata=subsoup.find('td',class_="zw")         #如果是空，就在另一个位置查找
              
-        if re.findall(r'xwzx2015',sublink) or re.findall(r'chengguozhuanhua2',sublink) or re.findall(r'lxyz_zbdt',sublink):
+        if re.findall(r'xwzx2015',sublink) or re.findall(r'chengguozhuanhua2',sublink) \
+            or re.findall(r'lxyz_zbdt',sublink) or re.findall(r'chengguojiangliguanli',sublink):
             subwriter.string = ' '
         elif re.findall(r'zonghexinwen',sublink):
             subwriter = subsoup.find('span',style="color:#FF6600;")
@@ -110,10 +114,20 @@ def fillUnivList(ulist, html):
         writers_txt(subwriter.string)
         if subdata.find('style'):
             [s.extract() for s in subdata("style")]
-        mytext=subdata.get_text()
-        txtname=mydate[i].string + subwriter.string + '《' + mydata[i].string + '》'
-        #print(txtname)
+        mytext = subdata.get_text()
+        txtname = mydate[i].string + subwriter.string + '《' + mydata[i].string + '》'
         text_create(txtname,mytext.replace(u'\xa0',u''))          #生成对应txt文件
+
+        #对发布日期进行统计分析（每周发布数量）
+        date_str = re.findall(r"\d+",mydate[i].string)
+        date_year = int(date_str[0])
+        date_month = int(date_str[1])
+        date_day = int(date_str[2])
+        interval = datetime.datetime(date_year,date_month,date_day)-datetime.datetime(2016,8,29)
+        week_count = interval.days//7
+        week[week_count]+=1
+        #print(week[week_count])
+
 
 def stop_words(texts):
     words_list = []
@@ -139,9 +153,10 @@ def txt_add():
     file.close()  
 
 def main():
-    global page_number
+    global page_number , week
     uinfo = []
     process_bar = ShowProcess(max_steps, 'OK')
+    open('writers.txt','w', encoding='UTF-8')
     os.remove("writers.txt")
     url_first = 'http://www.ciomp.ac.cn/xwdt/zhxw/index.html'  #首页
     html = getHTMLText(url_first)
@@ -151,8 +166,8 @@ def main():
         url_take = url.format(list = page_number)
         html = getHTMLText(url_take)
         fillUnivList(uinfo, html)
-        
     txt_add()
+
     back_color = plt.imread('background.jpg')  # 解析该图片
     wc = WordCloud(background_color='white',  # 背景颜色
                    max_words=1000,  # 最大词数
@@ -167,11 +182,21 @@ def main():
     jieba.load_userdict('NoCut.txt')
     wc.generate(text)
     image_colors = ImageColorGenerator(back_color)# 基于彩色图像生成相应彩色
-    plt.imshow(wc)    # 显示图片
-    plt.axis('off')    # 关闭坐标轴
-    plt.figure()    # 绘制词云
-    plt.imshow(wc.recolor(color_func=image_colors))
-    plt.axis('on')
+    wc.recolor(color_func=image_colors)
     wc.to_file('WordCloud_out.png')    # 保存图片
+
+    fig0 = plt.figure()
+    fig_wc = fig0.add_subplot(121) 
+    fig_wc.imshow(wc)    # 负责对图像进行处理，并显示其格式
+    fig_wc.axis('off')    # 关闭坐标轴
+    
+    fig_week = fig0.add_subplot(122) 
+    fig_week.axis('on')    # 开启坐标轴
+    x1 = range(0,170)
+    fig_week.plot(x1,week,label='Count',color='r',markerfacecolor='r',markersize=12)
+    plt.xlabel('Week Number')
+    plt.ylabel('The article number')
+    plt.title('Release statistics')
+    plt.show()
 
 main()
