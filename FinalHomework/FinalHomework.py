@@ -11,6 +11,9 @@ from matplotlib import pyplot as plt
 import sys
 import datetime
 
+from pylab import *
+mpl.rcParams['font.sans-serif'] = ['SimHei']
+
 last_page = 1
 max_steps=27
 page_number=0
@@ -152,6 +155,73 @@ def txt_add():
         file.write('\n')
     file.close()  
 
+def DepartmentNub():
+    result = pattern = ['0' for i in range(0,44)]
+    all_the_text = open('./writers.txt', 'r',encoding='UTF-8').read()
+    pattern[0] =re.compile(u"应光室|应光室党支部")
+    pattern[1] =re.compile(u"发光室")
+    pattern[2] =re.compile(u"空间新技术部")
+    pattern[3] =re.compile(u"探测部|光电探测部")
+    pattern[4] =re.compile(u"图像部|图像室")
+    pattern[5] =re.compile(u"空间部|空间一部|空间二部|空间三部")
+    pattern[6] =re.compile(u"航测部|航测一部|航测二部|航测三部|航测二部党支部")
+    pattern[7] =re.compile(u"Light中心")
+    pattern[8] =re.compile(u"信息中心")
+    pattern[9] =re.compile(u"研究生部")
+    pattern[10] =re.compile(u"质检中心")
+    pattern[11] =re.compile(u"长光集团")
+    pattern[12] =re.compile(u"人力资源处|人力处")
+    pattern[13] =re.compile(u"基础科研处|基础处|基础科研管理处")
+    pattern[14] =re.compile(u"光栅中心|光栅中心党支部|光栅中心党总支")
+    pattern[15] =re.compile(u"保密管理处|保密处")
+    pattern[16] =re.compile(u"离退中心")
+    pattern[17] =re.compile(u"党委办公室|党办")
+    pattern[18] =re.compile(u"研发中心")
+    pattern[19] =re.compile(u"知识产权与成果转化处|成果转化处|成果处")
+    pattern[20] =re.compile(u"国际合作处|国合处")
+    pattern[21] =re.compile(u"光学中心|光学中心党支部")
+    pattern[22] =re.compile(u"光子实验室")
+    pattern[23] =re.compile(u"工程处")
+    pattern[24] =re.compile(u"质量管理处|质量处")
+    pattern[25] =re.compile(u"所办|所长办公室")
+    pattern[26] =re.compile(u"条件保障处")
+    pattern[27] =re.compile(u"长光华大")
+    pattern[28] =re.compile(u"电装中心|电装中心党支部")
+    pattern[29] =re.compile(u"监察审计处|监审处")
+    pattern[30] =re.compile(u"青促会|青促会长光活动小组|青促会活动小组|长光所青促会活动小组")
+    pattern[31] =re.compile(u"奥普公司|奥普公司质管部生吉林|奥普公司研发中心党支部|奥普质管部")
+    pattern[32] =re.compile(u"机器人中心|空间机器人中心党支部")
+    pattern[33] =re.compile(u"孵化器|孵化器公司")
+    pattern[34] =re.compile(u"长光青年学术社")
+    pattern[35] =re.compile(u"OSA/SPIE学生分会|OSA/SPIE长春光机所学生分会")
+    pattern[36] =re.compile(u"长光所羽毛球协会")
+    pattern[37] =re.compile(u"科宇公司")
+    pattern[38] =re.compile(u"光电对抗党总支创新室党支部")
+    pattern[39] =re.compile(u"期刊编辑部|中国光学编辑部")
+    pattern[40] =re.compile(u"光学技术中心")
+    pattern[41] =re.compile(u"长光瑞思")
+    pattern[42] =re.compile(u"新产业公司|新产业公司党支部")
+    pattern[43] =re.compile(u"工程师培训中心")
+    for i in range(44):
+        result[i] = len(re.findall(pattern[i],all_the_text))
+        #print(result[i])
+    x1 = ['应光室','发光室','空间新技术部','探测部','图像部',\
+          '空间部','航测部','Light中心','信息中心','研究生部',\
+          '质检中心','长光集团','人力资源处','基础科研处','光栅中心',\
+          '保密管理处','离退中心','党委办公室','研发中心','知识产权与成果转化处',\
+          '国际合作处','光学中心','光子实验室','工程处','质量管理处',\
+          '所办','条件保障处','长光华大','电装中心','监察审计处',\
+          '青促会','奥普公司','机器人中心','孵化器','长光青年学术社',\
+          'OSA/SPIE学生分会','长光所羽毛球协会','科宇公司','光电对抗党总支创新室党支部','期刊编辑部',\
+          '光学技术中心','长光瑞思','新产业公司','工程师培训中心']
+    plt.figure()
+    plt.xticks(rotation=90)
+    plt.bar(x1,result,label='Count')
+    plt.xlabel('Number issued by each department')
+    plt.ylabel('The article number')
+    plt.title('Department')
+    plt.show()
+
 def main():
     global page_number , week
     uinfo = []
@@ -198,5 +268,6 @@ def main():
     plt.ylabel('The article number')
     plt.title('Release statistics')
     plt.show()
+    DepartmentNub()
 
 main()
