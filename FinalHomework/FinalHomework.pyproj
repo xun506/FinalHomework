@@ -110,6 +110,7 @@
     <Content Include="NoCut.txt" />
     <Content Include="result.txt" />
     <Content Include="stopwords.txt" />
+    <Content Include="Synonyms.txt" />
     <Content Include="WordCloud_out.png" />
     <Content Include="writers.txt" />
   </ItemGroup>
